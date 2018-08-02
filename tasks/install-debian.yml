@@ -1,0 +1,31 @@
+---
+- name: install JDK (Java Development Kit)
+  apt:
+    name: default-jdk
+
+- name: adding Oracle's PPA, then updating package repository
+  apt_repository:
+    repo: "{{ repo }}"
+
+- name: update package index
+  apt:
+    update_cache: yes
+    cache_valid_time: 86400
+    
+- name: auto accept oracle jdk license
+  shell: echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
+  sudo: yes
+
+- name: install oracle-java
+  apt:
+    name: "{{ java_version }}"
+
+- lineinfile:
+    path: /etc/environment
+    regexp: '^SELINUX='
+    line: 'JAVA_HOME="/usr/lib/jvm/java-8-oracle"'
+
+- name: reload source file
+  shell: "source /etc/environment"
+  args:
+    executable: /bin/bash 
