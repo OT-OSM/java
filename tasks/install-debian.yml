@@ -5,7 +5,7 @@
 
 - name: adding Oracle's PPA, then updating package repository
   apt_repository:
-    repo: "{{ repo }}"
+    repo: ppa:webupd8team/java
 
 - name: update package index
   apt:
