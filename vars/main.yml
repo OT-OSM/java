@@ -1,5 +1,4 @@
 ---
 # vars file for osm_java
-java_version: java-1.8.0
-repo: ppa:webupd8team/java
+java_version_redhat: java-1.8.0
 java_version: oracle-java8-installer
