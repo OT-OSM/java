@@ -28,4 +28,5 @@
 - name: reload source file
   shell: "source /etc/environment"
   args:
-    executable: /bin/bash 
+    executable: /bin/bash
+
