@@ -28,4 +28,3 @@
   shell: "source /etc/environment"
   args:
     executable: /bin/bash
-  tags: shell
