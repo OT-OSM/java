@@ -1,5 +1,5 @@
 ---
-- hosts: host
+- hosts: trusty64
   roles:
     - role: osm_java
   become: true
