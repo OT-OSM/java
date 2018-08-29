@@ -1,5 +1,5 @@
 ---
-- hosts: xenial1
+- hosts: localhost
   roles:
     - role: osm_java
   become: true
