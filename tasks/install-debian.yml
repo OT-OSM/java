@@ -1,8 +1,4 @@
 ---
-- name: install JDK (Java Development Kit)
-  apt:
-    name: default-jdk
-
 - name: adding Oracle's PPA, then updating package repository
   apt_repository:
     repo: ppa:webupd8team/java
@@ -11,7 +7,7 @@
   apt:
     update_cache: yes
     cache_valid_time: 86400
-    
+
 - name: auto accept oracle jdk license
   shell: echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
   sudo: yes
@@ -20,10 +16,10 @@
   apt:
     name: "{{ java_version }}"
 
-- template:
-    src: path.j2
-    dest: /etc/environment 
+- name: Setting java_home path
+  shell: path=$(readlink -f $(which java) | cut -d '/' -f1-6) && echo "JAVA_HOME="$path"" >> /etc/environment
 
+  
 - name: reload source file
   shell: "source /etc/environment"
   args:

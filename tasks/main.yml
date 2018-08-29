@@ -1,11 +1,10 @@
 ---
-- name: To install Java on RedHat
-  include_tasks: install-redhat.yml
-  when:
-    ansible_os_family == 'RedHat'
+#- name: To install Java on RedHat
+#  include_tasks: install-redhat.yml
+#  when:
+#    ansible_os_family == 'RedHat'
 
 - name: To install Java on Debian
   include_tasks: install-debian.yml
   when:
     ansible_os_family == 'Debian'
-
