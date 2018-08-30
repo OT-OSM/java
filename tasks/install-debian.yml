@@ -16,11 +16,16 @@
   apt:
     name: "{{ java_version }}"
 
-- name: Setting java_home path
-  shell: export JAVA_HOME=$(dirname $(dirname $(readlink -f  /usr/bin/java)))
+- name: getting java_home path
+  shell: dirname $(dirname $(readlink -f $(which java)))
+  register: command_output
 
-  
+- lineinfile:
+    path: /etc/environment
+    line: JAVA_HOME="{{ command_output.stdout }}"
+
+
 - name: reload source file
-  shell: "source /etc/environment"
+  shell: source /etc/environment
   args:
     executable: /bin/bash
