@@ -3,8 +3,3 @@
   roles:
     - role: osm_java
   become: true
-
-#  vars_prompt:
-#    - name: java_version #variable
-#      prompt: "Enter java version to be installed i.e oracle-java8-installer for ubuntu 14/16 or for centOS 7/8 java-1.8.0 or java-1.7.0"
-#      private: no
