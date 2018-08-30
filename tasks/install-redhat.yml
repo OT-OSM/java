@@ -6,3 +6,16 @@
   with_items:
     - "{{ java_version_redhat }}-openjdk-devel"
   
+- name: getting java_home path
+  shell: dirname $(dirname $(readlink -f $(which java)))
+  register: command_output
+
+- lineinfile:
+    path: /etc/environment
+    line: JAVA_HOME="{{ command_output.stdout }}"
+
+
+- name: reload source file
+  shell: source /etc/environment
+  args:
+    executable: /bin/bash
