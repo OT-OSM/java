@@ -1,4 +1,4 @@
 ---
 # vars file for osm_java
 java_version_redhat: java-1.8.0
-java_version: openjdk-8-jdk
+java_version: oracle-java8-installer
