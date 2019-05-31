@@ -1,5 +1,7 @@
 ---
 - hosts: localhost
-  roles:
-    - role: osm_java
   become: true
+  roles:
+   - role: osm_java
+
+
