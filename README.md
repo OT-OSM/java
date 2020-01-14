@@ -1,27 +1,64 @@
-Role Name: osm_java
+Ansible Role: osm_java
 =========
 
-Installs Java for RedHat/CentOS and Debian/Ubuntu linux servers.
+An ansible role to install and configure Java.
 
-Requirements
+Version History
+---------------
+
+|**Date**| **Version**| **Description**| **Changed By** |
+|----------|---------|---------------|-----------------|
+|**June '15** | v.1.0 | Initial Draft | Sudipt Sharma |
+
+Salient Features
+----------------
+* This role will fetch and install java version 8 but if you want to install a specific version, you may pass it in variables.
+
+Supported OS
 ------------
-
-Python 2.7* (to run ansible)
+  * CentOS:7
+  * CentOS:6
+  * Ubuntu:bionic
+  * Ubuntu:xenial
 
 Role Variables
 --------------
-java_version
-for ubuntu 14/16 : oracle-java8-installer
-for CentOS 7/8 : java-1.8.0 and java-1.7.0
+|**Date**| **Version**| **Description**|
+|--|--|--|
+|java_version_redhat| java-1.8.0 | Java version for Centos|
+|java_version | openjdk-8-jdk | Java version for Ubuntu | 
 
-Dependencies
--------------
-None.
+Inventory
+----------
+An inventory should look like this:-
+```ini
+[javahost]                 
+192.168.1.198    ansible_user=ubuntu   
+192.168.3.201    ansible_user=opstree 
+```
 
 Example Playbook
 ----------------
-
----
-- hosts: host
+* Here is an example playbook:-
+```
+- hosts: javahost
   roles:
     - role: osm_java
+```
+* ansible-playbook java.yml
+
+**After successful installation of java, you can verify by checking the version using the command shown below**
+![version](./media/java_version.png)
+
+Future Proposed Changes
+-----------------------
+
+References
+----------
+- **[software](https://www.java.com/en/)**
+
+Author Information
+------------------
+
+- Tejasvi Rana
+- tejasvi.rana@opstree.com

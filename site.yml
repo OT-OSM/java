@@ -3,4 +3,3 @@
   roles:
    - role: osm_java
   become: true
-
