@@ -12,7 +12,7 @@ Version History
 
 Salient Features
 ----------------
-* This role will fetch and install java version 8 but if you want to install a specific veriosn you may pass it in variables.
+* This role will fetch and install java version 8 but if you want to install a specific version, you may pass it in variables.
 
 Supported OS
 ------------
@@ -26,7 +26,7 @@ Role Variables
 |**Date**| **Version**| **Description**|
 |--|--|--|
 |java_version_redhat| java-1.8.0 | Java version for Centos|
-|java_version | openjdk-8-jdk | Java version for Ubuntu 
+|java_version | openjdk-8-jdk | Java version for Ubuntu | 
 
 Inventory
 ----------
@@ -45,6 +45,14 @@ Example Playbook
   roles:
     - role: osm_java
 ```
+* ansible-playbook java.yml
+
+**After successful installation of java, you can verify by checking the version using the command shown below**
+
+
+Future Proposed Changes
+-----------------------
+
 References
 ----------
 - **[software](https://www.java.com/en/)**
