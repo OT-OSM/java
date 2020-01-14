@@ -48,7 +48,7 @@ Example Playbook
 * ansible-playbook java.yml
 
 **After successful installation of java, you can verify by checking the version using the command shown below**
-
+![version](./media/java_version.png)
 
 Future Proposed Changes
 -----------------------
