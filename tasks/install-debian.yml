@@ -1,7 +1,7 @@
 ---
 - name: adding Oracle's PPA, then updating package repository
   apt_repository:
-    repo: ppa:webupd8team/java
+    repo: ppa:openjdk-r/ppa
 
 - name: update package index
   apt:
