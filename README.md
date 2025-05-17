@@ -1,64 +1,80 @@
-Ansible Role: osm_java
+Ansible Role: Java
 =========
 
-An ansible role to install and configure Java.
+An Ansible role to install and configure Java on Debian-based and RedHat-based systems.
 
-Version History
+📦 Version History
 ---------------
+
 
 |**Date**| **Version**| **Description**| **Changed By** |
 |----------|---------|---------------|-----------------|
-|**June '15** | v.1.0 | Initial Draft | Sudipt Sharma |
+| **June 2020** | v1.0        | Initial Draft            | Sudipt Sharma             |
+| **May 2025** | v1.1        | Molecule Integration     | Abhishek Vishwakarma      |
 
-Salient Features
+✨ Features
 ----------------
-* This role will fetch and install java version 8 but if you want to install a specific version, you may pass it in variables.
 
-Supported OS
-------------
-  * CentOS:7
-  * CentOS:6
-  * Ubuntu:bionic
-  * Ubuntu:xenial
+- Installs Java (default is Java 17).
+- Supports overriding the version via role variables.
+- Supports both Debian-based and RedHat-based distributions.
+- Optionally sets the `JAVA_HOME` environment variable.
 
-Role Variables
+⚙️ Role Variables
 --------------
-|**Date**| **Version**| **Description**|
-|--|--|--|
-|java_version_redhat| java-1.8.0 | Java version for Centos|
-|java_version | openjdk-8-jdk | Java version for Ubuntu | 
 
-Inventory
+You can customize the Java version using the following variables:
+
+| Variable               | Default Value          | Description                          |
+|------------------------|------------------------|--------------------------------------|
+| `java_version_redhat`  | `java-17-openjdk`   | Java version for RedHat-based OS|
+| `java_version`         | `openjdk-17-jdk`        | Java version for Debian-based OS       |
+
+
+🧾 Inventory Example
 ----------
-An inventory should look like this:-
+
 ```ini
 [javahost]                 
 192.168.1.198    ansible_user=ubuntu   
 192.168.3.201    ansible_user=opstree 
 ```
 
-Example Playbook
+📘 Example Playbook
 ----------------
-* Here is an example playbook:-
-```
+* Here is an example playbook `site.yml` :-
+```plain
 - hosts: javahost
   roles:
-    - role: osm_java
+    - role: java
 ```
-* ansible-playbook java.yml
+Run it using:
+* **ansible-playbook site.yml**
 
-**After successful installation of java, you can verify by checking the version using the command shown below**
+✅ Post-Installation
+--------------------
+After successful installation of java, verify it with:
+```bash
+java -version
+```
 ![version](./media/java_version.png)
 
-Future Proposed Changes
+🧪 Molecule Test
+----------------
+To test this role using Molecule, refer to the [Molecule Test Documentation](./molecule/README.md).
+
+🔮 Future Enhancements
 -----------------------
 
-References
+🔗 References
 ----------
-- **[software](https://www.java.com/en/)**
+- **[Java Official Website](https://www.java.com/en/)**
+- **[Molecule (Ansible Role Testing)](https://ansible.readthedocs.io/projects/molecule/)**
 
-Author Information
-------------------
+📬 Contact Information
+----------------------
+For questions, suggestions, or issues related to this role, please contact:
 
-- Tejasvi Rana
-- tejasvi.rana@opstree.com
+📧 Email: [opensource@opstree.com](mailto:opensource@opstree.com)
+
+🏢 Organization: [OpsTree Solutions](http://opstree.com)

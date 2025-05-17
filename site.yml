@@ -1,5 +1,6 @@
 ---
-- hosts: localhost
-  roles:
-   - role: osm_java
+- name: Install Java
+  hosts: localhost
   become: true
+  roles:
+   - role: java
